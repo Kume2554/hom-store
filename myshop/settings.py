@@ -2,12 +2,10 @@ import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+SECRET_KEY = 'django-insecure-key-your-own'
+DEBUG = True 
 
-SECRET_KEY = 'django-insecure-key-your-own-secret'
-
-DEBUG = True
-
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] # อนุญาตให้ Render เข้าถึงได้
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -16,14 +14,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # ต้องมี 3 บรรทัดนี้ ห้ามลืมเด็ดขาด!
     'shop',
     'cart',
-    'members',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # ต้องมีตัวนี้เพื่อให้รูปภาพแสดงผล
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -37,7 +34,7 @@ ROOT_URLCONF = 'myshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/'templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -59,15 +56,6 @@ DATABASES = {
     }
 }
 
-# ภาษาไทยและเวลาไทย
-LANGUAGE_CODE = 'th'
-TIME_ZONE = 'Asia/Bangkok'
-USE_I18N = True
-USE_TZ = True
-
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
