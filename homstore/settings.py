@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = 'django-insecure-homstore-key-123'
+SECRET_KEY = 'django-insecure-homstore-key-12345'
 DEBUG = True 
 
 ALLOWED_HOSTS = ['*']
@@ -29,8 +29,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# ✅ แก้เป็นชื่อโฟลเดอร์จริงของคุณ
-ROOT_URLCONF = 'homstore.urls'
+ROOT_URLCONF = 'homstore.urls' # ✅ แก้เป็น homstore
 
 TEMPLATES = [
     {
@@ -48,8 +47,7 @@ TEMPLATES = [
     },
 ]
 
-# ✅ แก้เป็นชื่อโฟลเดอร์จริงของคุณ
-WSGI_APPLICATION = 'homstore.wsgi.application'
+WSGI_APPLICATION = 'homstore.wsgi.application' # ✅ แก้เป็น homstore
 
 DATABASES = {
     'default': {
