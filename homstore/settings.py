@@ -2,10 +2,10 @@ import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = 'django-insecure-homstore-key-2026'
-DEBUG = True # เปลี่ยนเป็น False เมื่อเว็บใช้งานได้ปกติแล้ว
+SECRET_KEY = 'django-insecure-key-your-own'
+DEBUG = True 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] # อนุญาตให้ Render เข้าถึงได้
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -20,7 +20,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # ต้องมีตัวนี้เพื่อให้รูปภาพแสดงผล
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -29,7 +29,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'homstore.urls'
+ROOT_URLCONF = 'myshop.urls'
 
 TEMPLATES = [
     {
@@ -47,7 +47,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'homstore.wsgi.application'
+WSGI_APPLICATION = 'myshop.wsgi.application'
 
 DATABASES = {
     'default': {
