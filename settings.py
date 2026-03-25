@@ -3,9 +3,9 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-homstore-key-2026'
-DEBUG = True # เปลี่ยนเป็น False เมื่อเว็บใช้งานได้ปกติแล้ว
+DEBUG = True 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] # สำคัญมากเพื่อให้ Render ยอมให้เข้าเว็บ
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -20,7 +20,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # สำหรับจัดการไฟล์ CSS/รูปภาพ
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -30,22 +30,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'homstore.urls'
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
 
 WSGI_APPLICATION = 'homstore.wsgi.application'
 
