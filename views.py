@@ -10,8 +10,4 @@ def login_user(request):
     return render(request, 'shop/login.html', {})
 
 def logout_user(request):
-    logout(request)
-    return redirect('product_list')
-
-def cart_add(request, product_id):
     return redirect('product_list')
