@@ -2,10 +2,10 @@ import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = 'django-insecure-homstore-fix'
-DEBUG = True 
+SECRET_KEY = 'django-insecure-homstore-key-2026'
+DEBUG = True # เปลี่ยนเป็น False เมื่อเว็บใช้งานได้ปกติแล้ว
 
-ALLOWED_HOSTS = ['*'] # สำคัญ: เพื่อให้ Render เข้าใช้งานเว็บได้
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -16,12 +16,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop',
     'cart',
-    'whitenoise.runserver_nostatic', # ช่วยรัน static ใน debug mode
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # ต้องมีเพื่อให้รูปภาพ/CSS แสดงผล
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
